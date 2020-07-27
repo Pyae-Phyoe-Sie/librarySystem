@@ -18,6 +18,7 @@ class m200720_072354_create_books_table extends Migration
             'author'        => $this->string(255)->notnull(),
             'price'         => $this->double()->notnull(),
             'qty'           => $this->integer(10)->notnull(),
+            'delete_flag'   => $this->boolean()->notnull(),
             'created_by'    => $this->integer(11)->notnull(),
             'updated_by'    => $this->integer(11),
             'created_at'    => $this->timestamp()->defaultExpression('NOW()'),

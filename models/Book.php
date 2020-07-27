@@ -35,6 +35,7 @@ class Book extends \yii\db\ActiveRecord
         return [
             [['book_name', 'author', 'price', 'qty'], 'required'],
             [['price'], 'number'],
+            [['delete_flag'], 'boolean'],
             [['qty', 'created_by', 'updated_by'], 'integer'],
             [['created_by', 'updated_by', 'created_at', 'updated_at'], 'safe'],
             [['book_name', 'author'], 'string', 'max' => 255],
@@ -52,6 +53,7 @@ class Book extends \yii\db\ActiveRecord
             'author' => 'Author',
             'price' => 'Price',
             'qty' => 'Qty',
+            'delete_flag' => 'Delete Flag',
             'created_by' => 'Created By',
             'updated_by' => 'Updated By',
             'created_at' => 'Created At',

@@ -40,11 +40,11 @@ class BookQuery extends \yii\db\ActiveQuery
     {
         $keyword = $request->get('keyword');
         if ($keyword == "info") {
-            return $this->andWhere(['id' => $request->get('id')]);
+            return $this->andWhere(['id' => $request->get('id')])->andWhere(['delete_flag' => false])->orderBy('id DESC');
         }
         if ($keyword == "") {
-            return $this->andWhere(['<>', 'book_name', $keyword])->orWhere(['<>', 'author', $keyword]);
+            return $this->andWhere(['<>', 'book_name', $keyword])->orWhere(['<>', 'author', $keyword])->andWhere(['delete_flag' => false])->orderBy('id DESC');
         }
-        return $this->andWhere(['like', 'book_name', $keyword])->orWhere(['like', 'author', $keyword]);
+        return $this->andWhere(['like', 'book_name', $keyword])->orWhere(['like', 'author', $keyword])->andWhere(['delete_flag' => false])->orderBy('id DESC');
     }
 }
